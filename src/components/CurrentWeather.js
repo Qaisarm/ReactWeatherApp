@@ -14,9 +14,9 @@ const Location = (props) => {
 
       return(
 
-        <div className = "header" key = {Key_id}>
+        <div key = {Key_id}>
 
-        <div className = "header-top">
+        <div className = "current_weather_header">
         <h2> Today's Weather</h2>
         <h4> at </h4>
         <h3> {props.weatherLocation.latlong.name}</h3>

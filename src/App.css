@@ -20,18 +20,26 @@
   align-items: center;
   color: blue;
 }
+.current_weather{
+  align-items: center;
+  color: rgb(11, 43, 70);
+}
 .err_message{
   color: darkred;
 }
 
-.header-top{
+.current_weather_header{
   text-align: center;
+}
+.forcast_weather{
+  text-align: left;
+  color: rgb(207, 219, 37);
 }
 .header-body{
   text-align: center;
 }
 input[type=search] {
-  width: 100%;
+  width: 80%;
   background-color: rgb(160, 211, 162);
   color: white;
   padding: 14px 20px;

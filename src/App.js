@@ -3,19 +3,13 @@ import {Container, Row, Col} from 'react-grid-system'
 import Title from "./components/Title";
 import InputBar from './components/InputBar';
 import CurrentWeather from "./components/CurrentWeather";
-
+import WeatherReport from "./components/WeatherReport";
 import './App.css';
 
 
 class App extends React.Component {
     state = {
-        _place: {},
-        get place() {
-            return this._place;
-        },
-        set place(value) {
-            this._place = value;
-        },
+        place: {}
     };
 
     // To get data from SMHI API
@@ -53,7 +47,7 @@ class App extends React.Component {
          return;
     }
 
-    showAddressDetails(place) {
+    showAddressDetail(place) {
 
         let coords = this.getAddress(place);
 
@@ -70,17 +64,30 @@ class App extends React.Component {
         return (
             <div className="page">
                 <Title/>
-                <InputBar onPlaceChanged={this.showAddressDetails.bind(this)}/>
+                <InputBar onPlaceChanged={this.showAddressDetail.bind(this)}/>
                 <div className="err_message">
                 <label>{this.state.error_message}</label>
                 </div>
-
+                <br/>
+                <div className="current_weather ">
                 <Container fluid style={{ lineHeight: '8px' }}>
                   <Row justify="around" debug>
-                    <Col xs={4} debug><CurrentWeather onweatherLocation={this.state}/></Col>
+                    <Col xs={4} debug>
+                    <CurrentWeather onweatherLocation={this.state}/>
+                    </Col>
                   </Row>
                 </Container>                
-                
+                </div>
+                <br/>
+                <div className="weather_report">
+                <Container fluid style={{ lineHeight: '8px' }}>
+                  <Row justify="around" debug>
+                    <Col xs={4} debug>
+                    <WeatherReport onweatherLocation={this.state.place}/>
+                    </Col>
+                  </Row>
+                </Container>                
+                </div>
             </div>
         );
     }
