@@ -1,10 +1,11 @@
 import React from "react";
-import {Container, Row, Col} from 'react-grid-system'
+import {Container, Row, Col} from "react-grid-system";
 import Title from "./components/Title";
-import InputBar from './components/InputBar';
+import InputBar from "./components/InputBar";
 import CurrentWeather from "./components/CurrentWeather";
 import WeatherReport from "./components/WeatherReport";
-import './App.css';
+import PreviousYear from "./components/PreviousYear";
+import "./App.css";
 
 
 class App extends React.Component {
@@ -14,7 +15,6 @@ class App extends React.Component {
 
     // To get data from SMHI API
     getWeather(coords) {
-
         // To get a meteorological forecast at a point
         const URL = ' https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point';
         let fetching = false;
@@ -85,8 +85,12 @@ class App extends React.Component {
                     <Col xs={4} debug>
                     <WeatherReport onweatherLocation={this.state.place}/>
                     </Col>
+                    <Col xs={4} debug>
+                    <PreviousYear onweatherLocation={this.state.latlong}/>
+                    </Col>
                   </Row>
-                </Container>                
+                </Container>   
+                             
                 </div>
             </div>
         );

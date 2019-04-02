@@ -2,7 +2,7 @@ import React from "react";
 
 
 const Location = (props) => {
-
+  
   if( props.weatherLocation.place.length !== "undefined" && props.weatherLocation.place.length !== ""){
     return props.weatherLocation.place.slice(0, 1).map(
       (objects,Key_id) =>{
