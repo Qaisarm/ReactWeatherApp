@@ -20,7 +20,7 @@ Step 3: To start the application
 
         npm start
         
-  A new browser window will at  http://localhost:8080/
+  A new browser window will open at  http://localhost:8080/
   
   To see the Weather details, type city names of Sweden.
   
